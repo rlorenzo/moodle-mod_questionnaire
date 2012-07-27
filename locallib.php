@@ -2398,7 +2398,7 @@ class questionnaire {
             $groupid = -1;
         }
         $output = array();
-        $nbinfocols = 9; // change this if you want more info columns
+        $nbinfocols = 10; // change this if you want more info columns
         $stringother = get_string('other', 'questionnaire');
         $columns = array(
                 get_string('response','questionnaire'),
@@ -2409,6 +2409,7 @@ class questionnaire {
                 get_string('group'),
                 get_string('id','questionnaire'),
                 get_string('fullname'),
+                get_string('idnumber'),
                 get_string('username')
             );
 
@@ -2420,6 +2421,7 @@ class questionnaire {
                 1,
                 1,
                 0,
+                1,
                 1,
                 1,
             );
@@ -2667,6 +2669,7 @@ class questionnaire {
                     $uid = $username;
                     $fullname = fullname($user);
                     $username = $user->username;
+                    $uidnumber = $user->idnumber;
                 }
             }
 
@@ -2693,6 +2696,7 @@ class questionnaire {
                 $fullname =  get_string('anonymous', 'questionnaire');
                 $username = '';
                 $uid = '';
+                $uidnumber = '';
             }
             $arr = array();
             array_push($arr, $qid);
@@ -2703,6 +2707,7 @@ class questionnaire {
             array_push($arr, $groupname);
             array_push($arr, $uid);
             array_push($arr, $fullname);
+            array_push($arr, $uidnumber);
             array_push($arr, $username);
 
             // merge it
